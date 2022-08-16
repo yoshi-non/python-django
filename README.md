@@ -236,3 +236,17 @@ urlpatterns = [
     path('', views.IndexView.as_view(), name="index"),
 ]
 ```
+
+## ビューの作成
+
+diaryに自動作成されているviews.pyの中身を以下のものに書き換える。
+
+.venv/private_diary/diary/views.py
+
+```
+from django.views import generic
+
+
+class IndexView(generic.TemplateView):
+    template_name = "index.html"
+```
