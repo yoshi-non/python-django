@@ -137,3 +137,68 @@ DATABASES = {
 
 「NAME」は接続するデータベース名です。
 ```
+
+## ロギングの設定(欲しい方のみ)
+
+※デフォルトだとコンソールに最低限のログ出力しかされないためここでは設定を行う。
+
+| 用語 | 役割 |
+|:-----------------|:------------------|
+| ロガー | ログのエントリーポイント |
+| ハンドラ | ログの出力先の設定 |
+| フォーマッタ | ログの出力形式を設定 |
+
+
+| ログレベル | 用途 |
+|:-----------------|:------------------|
+| DEBUG | 開発時のデバッグ用 |
+| INFO | 正常処理の記録用 |
+| WARNING | 想定外処理の記録用 |
+| ERROR | CRITICALほどではないエラーの記録用 |
+| CRITICAL | システムダウンクラスの重大問題用 |
+
+.venv/private_diary/private_diary/settings.py
+
+```py
+# ロギング設定
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,  # 既存ロガーを無視する
+
+    # ロガーの設定
+    'loggers': {
+        # Djangoが利用するロガー
+        'django': {
+            'handlers': ['console'],
+            'level': 'INFO',
+        },
+        # diaryアプリケーションが利用するロガー
+        'diary': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+        },
+    },
+
+    # ハンドラの設定
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging_StreamHandler',  # コンソールに出力させる
+            'formatter': 'dev',
+        },
+    },
+
+    # フォーマッタの設定
+    'formatters': {
+        'dev': {
+            'format': '\t'.join([
+                '%(asctime)s',
+                '[%(levelname)s]',
+                '%(pathname)s(Line:%(lineno)d)',
+                '%(message)s',
+            ])
+        },
+    },
+}
+```
