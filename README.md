@@ -202,3 +202,37 @@ LOGGING = {
     },
 }
 ```
+
+## ルーティングの設定
+
+ここではdiaryアプリケーション用とトップページ用のルーティングを設定する。
+
+### diaryアプリケーション用
+
+.venv/private_diary/private_diary/urls.py
+
+```py
+from django.contrib import admin
+from django.urls import path, include # <- ここを変更
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', include('dialy.urls')), # <- ここに追加
+]
+```
+
+### トップページ用
+
+diaryディレクトリにurls.pyを作成し以下の内容を記載する。
+
+.venv/private_diary/diary/urls.py
+
+```py
+from django.urls import path
+from . import views
+
+app_name = 'diary'
+urlpatterns = [
+    path('', views.IndexView.as_view(), name="index"),
+]
+```
