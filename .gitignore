@@ -2,3 +2,6 @@
 /.venv/Lib
 /.venv/Scripts
 /.venv/pyvenv.cfg
+
+*.log
+*.pyc

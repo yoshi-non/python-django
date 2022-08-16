@@ -1,8 +1,24 @@
 # PythonでのDjangoの環境構築
 
 - pythonの仮想環境構築
+  - プロジェクト用の仮想環境作成
+  - 仮想環境に入る (activate)
+  - 仮想環境から抜ける (deactivate)
+  - 参考資料
 
 - Djangoの環境構築
+  - Djangoのインストール
+  - ドライバのインストール
+  - Djangoプロジェクトの作成
+  - Djangoアプリケーションの作成
+  - Djangoアプリケーションの作成(ファイル編集)
+  - 言語とタイムゾーンを日本仕様に変更
+  - Djangoのデータベース設定をPostgreSQLに変更
+  - ロギングの設定(欲しい方のみ)
+  - ルーティングの設定
+  - ビューの作成
+  - テンプレートの作成
+  - サーバの起動
 
 # pythonの仮想環境構築
 
@@ -184,7 +200,7 @@ LOGGING = {
     'handlers': {
         'console': {
             'level': 'DEBUG',
-            'class': 'logging_StreamHandler',  # コンソールに出力させる
+            'class': 'logging.StreamHandler',  # コンソールに出力させる
             'formatter': 'dev',
         },
     },
@@ -217,7 +233,7 @@ from django.urls import path, include # <- ここを変更
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('dialy.urls')), # <- ここに追加
+    path('', include('diary.urls')), # <- ここに追加
 ]
 ```
 
@@ -243,10 +259,63 @@ diaryに自動作成されているviews.pyの中身を以下のものに書き�
 
 .venv/private_diary/diary/views.py
 
-```
+```py
 from django.views import generic
 
 
 class IndexView(generic.TemplateView):
     template_name = "index.html"
 ```
+
+## テンプレートの作成
+
+diaryにtemplates/index.htmlを作成
+
+※現段階では「Hello World」を表示させるだけです。
+
+.venv/private_diary/diary/templates/index.html
+
+```html
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>トップページ</title>
+</head>
+<body>
+    <h1>Hello World</h1>
+</body>
+</html>
+```
+
+## サーバの起動
+
+サーバの起動ですがまだPostgreSQLと接続していないためsettings.pyのデータベースをコメントアウトする必要があります。
+サーバの起動確認のため一時的なコメントアウトです。
+
+.venv/private_diary/private_diary/settings.py
+
+```py
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'private_diary',
+#         'USER': os.environ.get('DB_USER'),
+#         'PASSWORD': os.environ.get('DB_PASSWORD'),
+#         'HOST': '',
+#         'PORT': '',
+#     }
+# }
+```
+
+以下コマンドで http://127.0.0.1:8000/ に開発用サーバを起動できます。
+
+```
+(.venv) .venv/private_diary > python manage.py runserver
+```
+
+![hello-world](https://user-images.githubusercontent.com/83369665/184890668-290ba987-52fd-4164-b75b-23d7a053d8c8.png)
+
+この画面が出れば成功です。
