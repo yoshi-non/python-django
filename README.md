@@ -116,3 +116,24 @@ LANGUAGE_CODE = 'ja'
 
 TIME_ZONE = 'Asia/Tokyo'
 ```
+
+## Djangoのデータベース設定をPostgreSQLに変更
+
+.venv/private_diary/private_diary/settings.py
+
+```py
+import os
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'private_diary',
+        'USER': os.environ.get('DB_USER'),
+        'PASSWORD': os.environ.get('DB_PASSWORD'),
+        'HOST': '',
+        'PORT': '',
+    }
+}
+
+「NAME」は接続するデータベース名です。
+```
