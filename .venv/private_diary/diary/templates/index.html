@@ -1,12 +1,61 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>トップページ</title>
-</head>
-<body>
-    <h1>Hello World</h1>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Web上にあなた専用の日記ページを保存出来るサービス | Private Diary{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock %}
+
+{% block header %}
+
+<header class="header">
+    <div class="header__body">
+        <h1 class="header__body--title">Private Diary</h1>
+        <h2 class="header__body--text">あなた専用の日記保存サービス</h2>
+        <a class="header__body--link" href="/">LOG IN</a>
+    </div>
+</header>
+
+{% endblock %}
+
+{% block contents %}
+
+<section class="section">
+    <div class="section__body">
+        <div class="section__body--imgBox">
+            <img class="section__body--img" src="{% static 'assets/img/enemy0.png' %}" alt="">
+        </div>
+        <div class="section__body--textBox">
+            <h2 class="section__body--text">Web Diary</h2>
+            <p class="section__body--text">Web上で作成/編集/削除ができる日記</p>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="section__body">
+        <div class="section__body--imgBox">
+            <img class="section__body--img" src="{% static 'assets/img/enemy1.png' %}" alt="">
+        </div>
+        <div class="section__body--textBox">
+            <h2 class="section__body--text">Save Your Diary</h2>
+            <p class="section__body--text">あなたの日記をWebに保存</p>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="section__body">
+        <div class="section__body--imgBox">
+            <img class="section__body--img" src="{% static 'assets/img/enemy2.png' %}" alt="">
+        </div>
+        <div class="section__body--textBox">
+            <h2 class="section__body--text">Membership System</h2>
+            <p class="section__body--text">会員制のWeb日記サービス</p>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

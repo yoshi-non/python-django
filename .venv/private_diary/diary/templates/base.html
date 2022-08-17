@@ -1,0 +1,41 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    {% block head %}{% endblock %}
+</head>
+<body>
+    <div id="wrapper">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="navbar__left">
+                <!-- ホームページのリンク -->
+                <a href="/" class="navbar__left--link">PRIVATE DIARY</a>
+                <!-- お問い合わせページのリンク -->
+                <a href="/" class="navbar__left--link">INQUIRY</a>
+            </div>
+            <div class="navbar__right">
+                <a href="/" class="navbar__right--link">Sign Up</a>
+                <a href="/" class="navbar__right--link">Log In</a>
+            </div>
+        </nav>
+
+        {% block header %}{% endblock %}
+
+        {% block contents %}{% endblock %}
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer__body">
+                <p class="footer__body--text">Copyright &copy; Private Diary 2022</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
