@@ -21,6 +21,7 @@
 # 目次
 
 - 静的ファイルが配置されている場所の設定
+- レイアウトの継承
 
 ## 静的ファイルが配置されている場所の設定
 
@@ -60,3 +61,7 @@ staticタグを使えるようにする。
 <!-- 継承するファイル -->
 {% block ブロック名 %}{% endblock %}
 ```
+
+index.html
+
+![screencapture-index](https://user-images.githubusercontent.com/83369665/185094241-af6163cc-e04f-47aa-ba57-4627bc33467c.png)
