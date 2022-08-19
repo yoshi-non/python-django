@@ -1,0 +1,30 @@
+.inquiry{
+    width: 1000px;
+    margin: 100px auto;
+}
+
+.post__body{
+    font-size: 1.5rem;
+}
+
+.post__body--btn{
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 500;
+    background-color: rgb(199, 53, 53);
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+
+/* inputタグ */
+
+.form-control{
+    color: gray;
+    font-size: 1.2rem;
+    font-weight: 500;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 30px;
+    border: 1px solid gray;
+    border-radius: 10px;
+}

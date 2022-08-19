@@ -18,7 +18,7 @@
                 <!-- ホームページのリンク -->
                 <a href="/" class="navbar__left--link">PRIVATE DIARY</a>
                 <!-- お問い合わせページのリンク -->
-                <a href="/" class="navbar__left--link">INQUIRY</a>
+                <a href="{% url 'diary:inquiry' %}" class="navbar__left--link {% block active_inquiry %}{% endblock %}">INQUIRY</a>
             </div>
             <div class="navbar__right">
                 <a href="/" class="navbar__right--link">Sign Up</a>

@@ -1,3 +1,12 @@
+# 自分用コマンド
+```
+.venv/Scripts/Activate.ps1
+
+cd .venv/private_diary
+
+python manage.py runserver
+```
+
 # PythonでのDjangoの環境構築
 
 - pythonの仮想環境構築
