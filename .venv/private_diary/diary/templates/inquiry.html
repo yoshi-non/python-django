@@ -13,7 +13,7 @@
 {% block contents %}
 
 <div class="inquiry">
-    <from method="post" class="post">
+    <form method="post" class="post">
         {% csrf_token %}
 
         {{ form.non_field_errors }}
@@ -28,7 +28,7 @@
         </div>
         {% endfor %}
         <button type="submit" class="post__body--btn">送信</button>
-    </from>
+    </form>
 </div>
 
 {% endblock %}
