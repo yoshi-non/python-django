@@ -34,7 +34,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'diary.apps.DiaryConfig'
+    'diary.apps.DiaryConfig',
+    'accounts.apps.AccountsConfig',
 ]
 
 MIDDLEWARE = [
@@ -71,27 +72,9 @@ WSGI_APPLICATION = 'private_diary.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': env.get_value('DATABASE_ENGINE', default='django.db.backends.sqlite3'),
-#         'NAME': env.get_value('DATABASE_NAME', default=os.path.join(BASE_DIR, 'db.sqlite3')),
-#         'USER': env.get_value('DB_USER', default="django_user"),
-#         'PASSWORD': env.get_value('DB_PASSWORD', default="password"),
-#         'HOST': env.get_value('DATABASE_HOST', default='localhost'),
-#         'PORT': env.get_value('DATABASE_PORT', default='8000'),
-#     }
-# }
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': env.get_value('DATABASE_ENGINE'),
-#         'NAME': env.get_value('DATABASE_NAME'),
-#         'USER': env.get_value('DB_USER'),
-#         'PASSWORD': env.get_value('DB_PASSWORD'),
-#         'HOST': env.get_value('DATABASE_HOST'),
-#         'PORT': env.get_value('DATABASE_PORT'),
-#     }
-# }
+DATABASES = {
+    'default': env.db(),
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -179,3 +162,5 @@ MESSAGE_TAGS = {
     messages.SUCCESS: "alert alert-success",
     messages.INFO: "alert alert-info",
 }
+
+AUTH_USER_MODEL = "accounts.CustomUser"
