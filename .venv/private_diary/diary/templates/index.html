@@ -14,7 +14,7 @@
     <div class="header__body">
         <h1 class="header__body--title">Private Diary</h1>
         <h2 class="header__body--text">あなた専用の日記保存サービス</h2>
-        <a class="header__body--link" href="/">LOG IN</a>
+        <a class="header__body--link {% block active_login %}{% endblock %}" href="{% url 'account_login' %}">LOG IN</a>
     </div>
 </header>
 

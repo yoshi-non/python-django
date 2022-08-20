@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Verify Your E-mail Address | Private Diary{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/auth.css' %}">
+{% endblock %}
+
+{% block contents %}
+
+<div class="auth">
+    <div class="auth__body">
+        <h1 class="auth__body--title">メールアドレスを確認して下さい。</h1>
+        <div>
+            <p>確認のメールを送信しました。</p>
+            <p>メールに記載されたリンクをクリックして、ユーザー登録を完了させて下さい。数分待っても確認のメールが届かない場合はご連絡下さい。</p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

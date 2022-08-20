@@ -14,6 +14,11 @@
     <div id="wrapper">
         <!-- Navigation -->
         <nav class="navbar">
+            {% if user.is_authenticated %}
+            <div class="navbar__left">
+                <a href="{% url 'account_logout' %}" class="navbar__left--link">Log Out</a>
+            </div>
+            {% else %}
             <div class="navbar__left">
                 <!-- ホームページのリンク -->
                 <a href="/" class="navbar__left--link">PRIVATE DIARY</a>
@@ -21,9 +26,10 @@
                 <a href="{% url 'diary:inquiry' %}" class="navbar__left--link {% block active_inquiry %}{% endblock %}">INQUIRY</a>
             </div>
             <div class="navbar__right">
-                <a href="/" class="navbar__right--link">Sign Up</a>
-                <a href="/" class="navbar__right--link">Log In</a>
+                <a href="{% url 'account_signup' %}" class="navbar__right--link {% block active_signup %}{% endblock %}">Sign Up</a>
+                <a href="{% url 'account_login' %}" class="navbar__right--link {% block active_login %}{% endblock %}">Log In</a>
             </div>
+            {% endif %}
         </nav>
 
         {% block header %}{% endblock %}

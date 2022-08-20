@@ -36,6 +36,11 @@ INSTALLED_APPS = [
 
     'diary.apps.DiaryConfig',
     'accounts.apps.AccountsConfig',
+
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'django_bootstrap5',
 ]
 
 MIDDLEWARE = [
@@ -164,3 +169,34 @@ MESSAGE_TAGS = {
 }
 
 AUTH_USER_MODEL = "accounts.CustomUser"
+
+# django-allauth
+SITE_ID = 1
+
+AUTHENTICATION_BACKENDS = (
+    'allauth.account.auth_backends.AuthenticationBackend',
+    # 一般ユーザー用
+    'django.contrib.auth.backends.ModelBackend',
+    # 管理サイト用
+)
+
+# メールアドレス認証に変更する設定
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_USERNAME_REQUIRED = False
+
+# サインアップにメールアドレス確認をはさむように設定
+ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+ACCOUNT_EMAIL_REQUIRED = True
+
+# ログイン/ログアウト後の遷移先を設定
+LOGIN_REDIRECT_URL = "diary:index"
+ACCOUNT_LOGOUT_REDIRECT_URL = "account_login"
+
+# ログアウトリンクのクリックでログアウトする設定
+ACCOUNT_LOGOUT_ON_GET = True
+
+# django-allauthが送信するメールの件名に自動付与される接頭語をブランクにする設定
+ACCOUNT_EMAIL_SUBJECT_PREFIX = ""
+
+# デフォルトのメール送信元を設定
+DEFAULT_FROM_EMAIL = env("FROM_EMAIL")

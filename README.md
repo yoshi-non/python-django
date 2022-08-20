@@ -1,10 +1,19 @@
 # 自分用コマンド
+
+サーバ起動
 ```
 .venv/Scripts/Activate.ps1
 
 cd .venv/private_diary
 
 python manage.py runserver
+```
+
+マイグレーション
+```
+python manage.py makemigrations
+
+python manage.py migrate
 ```
 
 # PythonでのDjangoの環境構築
