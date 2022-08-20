@@ -1,0 +1,83 @@
+.auth__body{
+    width: 1000px;
+    margin: 50px auto;
+    font-size: 1.5rem;
+}
+
+.auth__body--title{
+    margin-bottom: 30px;
+}
+
+.auth__btn{
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 500;
+    background-color: rgb(199, 53, 53);
+    padding: 5px 10px;
+    margin: 10px 0;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* inputタグ */
+
+.form-control{
+    color: gray;
+    font-size: 1.2rem;
+    font-weight: 500;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 30px;
+    border: 1px solid gray;
+    border-radius: 10px;
+}
+
+/* checkbox */
+
+.form-check{
+    display: flex;
+    gap: 20px;
+    align-content: center;
+}
+
+.form-check-input{
+    transform: scale(2);
+}
+
+/* messagge alert */
+
+.message{
+    position: relative;
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.alert{
+    padding: 10px;
+    margin-top: 30px;
+    border-radius: 10px;
+}
+
+.alert-danger{
+    color: #721c24;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+}
+
+.alert-warning{
+    color: #856404;
+    background-color: #fff3cd;
+    border: 1px solid #ffeeba;
+}
+
+.alert-success{
+    color: #155724;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+}
+
+.alert-info{
+    color: #0c5460;
+    background-color: #d1ecf1;
+    border: 1px solid #bee5eb;
+}
