@@ -2,7 +2,10 @@
 /.venv/Lib
 /.venv/Scripts
 /.venv/pyvenv.cfg
+/.venv/private_diary/media/
 
 *.log
 *.pyc
 *.env
+
+/memo.md

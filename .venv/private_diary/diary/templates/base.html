@@ -20,7 +20,7 @@
                 <!-- お問い合わせページのリンク -->
                 <a href="{% url 'diary:inquiry' %}" class="navbar__left--link {% block active_inquiry %}{% endblock %}">INQUIRY</a>
                 {% if user.is_authenticated %}
-                <a href="{% url 'diary:diary_list' %}" class="navbar__left--link {% block active_inquiry %}{% endblock %}">DIARY LIST</a>
+                <a href="{% url 'diary:diary_list' %}" class="navbar__left--link {% block active_diary_list %}{% endblock %}">DIARY LIST</a>
                 {% endif %}
             </div>
             {% if user.is_authenticated %}
