@@ -37,24 +37,24 @@
     color: gray;
 }
 
-.pagenation{
+.pagination{
     padding-top: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.pagenation__prev--link, .pagenation__next--link, .pagenation__current--link, .pagenation__num--link{
+.pagination__prev--link, .pagination__next--link, .pagination__current--link, .pagination__num--link{
     padding: 3px 10px;
     border: 1px solid gray;
 }
 
-.pagenation__prev--link, .pagenation__next--link, .pagenation__num--link{
+.pagination__prev--link, .pagination__next--link, .pagination__num--link{
     color: black;
     background-color: white;
 }
 
-.pagenation__current--link{
+.pagination__current--link{
     color: white;
     background-color: rgb(76, 101, 124);
 }
