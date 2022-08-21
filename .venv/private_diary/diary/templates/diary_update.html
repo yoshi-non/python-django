@@ -1,8 +1,8 @@
-<!-- {% extends 'base.html' %}
+{% extends 'base.html' %}
 
 {% load static %}
 
-{% block title %}日記作成 | Private Diary{% endblock %}
+{% block title %}日記編集 | Private Diary{% endblock %}
 
 {% block active_diary_list %}active{% endblock %}
 
@@ -14,8 +14,15 @@
 
 <div class="diary">
     <div class="diary__body">
-   
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="post__body">    
+                {{ form.as_ul }}
+            </div>
+            <button type="submit" class="post__btn">更新</button>
+            <a href="{% url 'diary:diary_detail' object.pk %}" class="diary__btn">キャンセル</a>
+        </form>
     </div>
 </div>
 
-{% endblock %} -->
+{% endblock %}
