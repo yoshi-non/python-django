@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %} | Private Diary{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/diary.css' %}">
+{% endblock %}
+
+{% block contents %}
+
+<div class="diary">
+    <div class="diary__body">
+        <div>
+            <a href="#">新規作成</a>
+        </div>
+        {% for diary in diary_list %}
+        <div>
+            <a href="#">
+                <h2>{{ diary.title }}</h2>
+                <h3>{{ diary.content|truncatechars:20 }}</h3>
+            </a>
+            <p>{{ diary.created_at }}</p>
+        </div>
+        <hr>
+        {% empty %}
+        <p>日記がありません。</p>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
