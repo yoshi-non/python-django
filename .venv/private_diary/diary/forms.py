@@ -3,6 +3,7 @@ import environ
 
 from django import forms
 from django.core.mail import EmailMessage
+from .models import Diary
 
 env = environ.Env()
 env.read_env('.env')
@@ -53,3 +54,14 @@ class InquiryForm(forms.Form):
         message = EmailMessage(subject=subject, body=message,
                                from_email=from_email, to=to_list, cc=cc_list)
         message.send()
+
+
+class DiaryCreateForm(forms.ModelForm):
+    class Meta:
+        model = Diary
+        fields = ('title', 'content', 'photo1', 'photo2', 'photo3', )
+
+        def __init__(self, *args, **kwargs):
+            super().__init__(*args, **kwargs)
+            for field in self.fields.values():
+                field.widget.attrs['class'] = 'form-control'
