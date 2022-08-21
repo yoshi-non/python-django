@@ -209,3 +209,8 @@ ACCOUNT_EMAIL_SUBJECT_PREFIX = ""
 
 # デフォルトのメール送信元を設定
 DEFAULT_FROM_EMAIL = env("FROM_EMAIL")
+
+# メディアファイルを扱えるようにする
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+MEDIA_URL = '/media/'
