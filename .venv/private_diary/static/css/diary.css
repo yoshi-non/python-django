@@ -1,0 +1,60 @@
+.diary__body{
+    width: 1000px;
+    margin: 30px auto;
+    font-size: 1.5rem;
+}
+
+.diary__btn--Block{
+    text-align: right;
+    padding: 10px 0;
+}
+
+.diary__btn{
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 500;
+    background-color: rgb(76, 101, 124);
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.diary__body--col{
+    padding: 5px;
+    margin: 10px 0;
+    border-bottom: 1px gray dotted;
+}
+
+.diary__body--col--title{
+    color: black;
+}
+
+.diary__body--col--text{
+    color: black;
+}
+
+.diary__body--col--date{
+    color: gray;
+}
+
+.pagenation{
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pagenation__prev--link, .pagenation__next--link, .pagenation__current--link, .pagenation__num--link{
+    padding: 3px 10px;
+    border: 1px solid gray;
+}
+
+.pagenation__prev--link, .pagenation__next--link, .pagenation__num--link{
+    color: black;
+    background-color: white;
+}
+
+.pagenation__current--link{
+    color: white;
+    background-color: rgb(76, 101, 124);
+}

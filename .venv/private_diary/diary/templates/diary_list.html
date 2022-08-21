@@ -12,30 +12,29 @@
 
 <div class="diary">
     <div class="diary__body">
-        <div>
-            <a href="#">新規作成</a>
+        <div class="diary__btn--Block">
+            <a href="#" class="diary__btn">新規作成</a>
         </div>
         {% for diary in diary_list %}
-        <div>
-            <a href="#">
-                <h2>{{ diary.title }}</h2>
-                <h3>{{ diary.content|truncatechars:20 }}</h3>
-            </a>
-            <p>{{ diary.created_at }}</p>
-        </div>
-        <hr>
+            <div class="diary__body--col">
+                <a href="#">
+                    <h2 class="diary__body--col--title">{{ diary.title }}</h2>
+                    <h3 class="diary__body--col--text">{{ diary.content|truncatechars:20 }}</h3>
+                </a>
+                <p class="diary__body--col--date">{{ diary.created_at }}</p>
+            </div>
         {% empty %}
-        <p>日記がありません。</p>
+            <p>日記がありません。</p>
         {% endfor %}
 
         <!-- ページネーション処理 -->
-        {% if is_pagenated %}
+        {% if is_paginated %}
         <ul class="pagenation">
             <!-- 前ページへのリンク -->
             {% if page_obj.has_previous %}
             <li class="pagenation__prev">
                 <a href="?page={{ page_obj.previous_page_number }}" class="pagenation__prev--link">
-                    <span>&laquo;</span>
+                    <span aria-hidden="true">&laquo;</span>
                 </a>
             </li>
             {% endif %}
@@ -44,7 +43,7 @@
             {% for page_num in page_obj.paginator.page_range %}
                 {% if page_obj.number == page_num %}
                     <li class="pagenation__num">
-                        <a href="#" class="pagenation__num--link">
+                        <a href="#" class="pagenation__current--link">
                             {{ page_num }}
                         </a>
                     </li>
@@ -61,7 +60,7 @@
             {% if page_obj.has_next %}
             <li class="pagenation__prev">
                 <a href="?page={{ page_obj.next_page_number }}" class="pagenation__next--link">
-                    <span>&raquo;</span>
+                    <span aria-hidden="true">&raquo;</span>
                 </a>
             </li>
             {% endif %}
