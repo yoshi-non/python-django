@@ -6,13 +6,25 @@ from django.views import generic
 
 from django.contrib import messages
 
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+
+from django.shortcuts import get_object_or_404
 
 from .forms import InquiryForm, DiaryCreateForm
 
 from .models import Diary
 
 logger = logging.getLogger(__name__)
+
+
+class OnlyYouMixin(UserPassesTestMixin):
+    raise_exception = True
+
+    def test_func(self):
+        # URLに埋め込まれた主キーから日記データを1件取得。取得出来なければ404エラー
+        diary = get_object_or_404(Diary, pk=self.kwargs['pk'])
+        # ログインユーザーと日記の作成ユーザーを比較し、異なればraise_exceptionの設定に従う
+        return self.request.user == diary.user
 
 
 class IndexView(generic.TemplateView):
