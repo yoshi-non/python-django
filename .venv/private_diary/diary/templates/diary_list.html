@@ -2,7 +2,7 @@
 
 {% load static %}
 
-{% block title %} | Private Diary{% endblock %}
+{% block title %}日記一覧 | Private Diary{% endblock %}
 
 {% block head %}
 <link rel="stylesheet" href="{% static 'css/diary.css' %}">
@@ -17,7 +17,7 @@
         </div>
         {% for diary in diary_list %}
             <div class="diary__body--col">
-                <a href="#">
+                <a href="{% url 'diary:diary_detail' diary.pk %}">
                     <h2 class="diary__body--col--title">{{ diary.title }}</h2>
                     <h3 class="diary__body--col--text">{{ diary.content|truncatechars:20 }}</h3>
                 </a>

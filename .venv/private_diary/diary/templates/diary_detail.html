@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}日記詳細 | Private Diary{% endblock %}
+
+{% block active_diary_list %}active{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/diary.css' %}">
+{% endblock %}
+
+{% block contents %}
+
+<div class="diary">
+    <div class="diary__body">
+        <div>
+            <strong>タイトル</strong>
+            <div>{{ object.title }}</div>
+        </div>
+        <div>
+            <strong>本文</strong>
+            {% if object.content %}
+            <div>{{ object.content|linebreaksbr }}</div>
+            {% endif %}
+        </div>
+        <div>
+            <strong>写真</strong>
+            <div>
+                {% if object.photo1 %}
+                    <img src="{{ object.photo1.url }}" width="200" height="200" alt="photo">
+                {% endif %}
+            </div>
+            <div>
+                {% if object.photo2 %}
+                    <img src="{{ object.photo2.url }}" width="200" height="200" alt="photo">
+                {% endif %}
+            </div>
+            <div>
+                {% if object.photo3 %}
+                    <img src="{{ object.photo3.url }}" width="200" height="200" alt="photo">
+                {% endif %}
+            </div>
+        </div>
+        <div>
+            <strong>作成日時</strong>
+            <div>{{ object.created_at }}</div>
+        </div>
+        <div>
+            <strong>更新日時</strong>
+            <div>{{ object.updated_at }}</div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
