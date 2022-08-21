@@ -4,7 +4,7 @@
     font-size: 1.5rem;
 }
 
-.diary__btn--Block{
+.diary__btn--block{
     text-align: right;
     padding: 10px 0;
 }
@@ -57,4 +57,27 @@
 .pagination__current--link{
     color: white;
     background-color: rgb(76, 101, 124);
+}
+
+/* detail */
+
+.detail{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.detail__body--photoBlock{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 10px;
+}
+
+.detail__body--photoBlock--img{
+    object-fit: cover;
+}
+
+.detail__body--date{
+    color: gray;
 }

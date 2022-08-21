@@ -13,7 +13,7 @@
 {% block contents %}
 
 <div class="diary">
-    <div class="diary__body">
+    <div class="diary__body detail">
         <div>
             <strong>タイトル</strong>
             <div>{{ object.title }}</div>
@@ -24,31 +24,33 @@
             <div>{{ object.content|linebreaksbr }}</div>
             {% endif %}
         </div>
-        <div>
+        <div class="">
             <strong>写真</strong>
-            <div>
-                {% if object.photo1 %}
-                    <img src="{{ object.photo1.url }}" width="200" height="200" alt="photo">
-                {% endif %}
-            </div>
-            <div>
-                {% if object.photo2 %}
-                    <img src="{{ object.photo2.url }}" width="200" height="200" alt="photo">
-                {% endif %}
-            </div>
-            <div>
-                {% if object.photo3 %}
-                    <img src="{{ object.photo3.url }}" width="200" height="200" alt="photo">
-                {% endif %}
+            <div class="detail__body--photoBlock">
+                <div>
+                    {% if object.photo1 %}
+                        <img src="{{ object.photo1.url }}" class="detail__body--photoBlock--img" width="200" height="200" alt="photo">
+                    {% endif %}
+                </div>
+                <div>
+                    {% if object.photo2 %}
+                        <img src="{{ object.photo2.url }}" class="detail__body--photoBlock--img" width="200" height="200" alt="photo">
+                    {% endif %}
+                </div>
+                <div>
+                    {% if object.photo3 %}
+                        <img src="{{ object.photo3.url }}" class="detail__body--photoBlock--img" width="200" height="200" alt="photo">
+                    {% endif %}
+                </div>
             </div>
         </div>
         <div>
             <strong>作成日時</strong>
-            <div>{{ object.created_at }}</div>
+            <div class="detail__body--date">{{ object.created_at }}</div>
         </div>
         <div>
             <strong>更新日時</strong>
-            <div>{{ object.updated_at }}</div>
+            <div class="detail__body--date">{{ object.updated_at }}</div>
         </div>
     </div>
 </div>
