@@ -13,14 +13,16 @@
 {% block contents %}
 
 <div class="diary">
-    <div class="diary__body">
-        <form method="post" enctype="multipart/form-data">
+    <div class="diary__body update">
+        <form method="post" enctype="multipart/form-data" class="update__body">
             {% csrf_token %}
-            <div class="post__body">    
-                {{ form.as_ul }}
+            <table class="update__form">
+                {{ form.as_table }}
+            </table>
+            <div class="update__btnBlock">
+                <button type="submit" class="update__btn">更新</button>
+                <a href="{% url 'diary:diary_detail' object.pk %}" class="cancel__btn">キャンセル</a>
             </div>
-            <button type="submit" class="post__btn">更新</button>
-            <a href="{% url 'diary:diary_detail' object.pk %}" class="diary__btn">キャンセル</a>
         </form>
     </div>
 </div>

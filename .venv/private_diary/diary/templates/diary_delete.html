@@ -13,12 +13,14 @@
 {% block contents %}
 
 <div class="diary">
-    <div class="diary__body">
-        <form method="post">
+    <div class="diary__body delete">
+        <form method="post" class="delete__body">
             {% csrf_token %}
             <p>本当に削除しますか?</p>
-            <button type="submit">削除</button>
-            <a href="{% url 'diary:diary_detail' object.pk %}">キャンセル</a>
+            <div class="delete__btnBlock">
+                <button type="submit" class="delete__btn">削除</button>
+                <a href="{% url 'diary:diary_detail' object.pk %}" class="cancel__btn">キャンセル</a>
+            </div>
         </form>
     </div>
 </div>
