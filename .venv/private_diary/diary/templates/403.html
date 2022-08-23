@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}403エラー | Private Diary{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock %}
+
+{% block contents %}
+
+<section class="section">
+    <div class="section__body">
+        <h1>アクセス権限がありません。</h1>
+    </div>
+</section>
+
+{% endblock %}
