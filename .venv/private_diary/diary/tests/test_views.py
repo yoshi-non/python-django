@@ -4,6 +4,10 @@ from django.urls import reverse_lazy
 
 from ..models import Diary
 
+import environ
+env = environ.Env()
+env.read_env('.env')
+
 
 class LoggedInTestCase(TestCase):
     """各テストクラスで共通の事前準備をオーバーライドした独自TestCaseクラス"""
@@ -12,13 +16,13 @@ class LoggedInTestCase(TestCase):
         """テストメソッド実行前の事前準備"""
 
         # テストユーザーのパスワード
-        self.password = "<ログインパスワード>"
+        self.password = env("TEST_USER_PASS")
 
         # 各インスタンスメソッドで使うテスト用ユーザーを生成し
         # インスタンス変数に格納しておく
         self.test_user = get_user_model().objects.create_user(
-            username="<ログインユーザー名>",
-            email="<ログインユーザーのメールアドレス>",
+            username=env("TEST_USER_NAME"),
+            email=env("TEST_USER_MAIL"),
             password=self.password
         )
 

@@ -2,6 +2,10 @@ from django.test import LiveServerTestCase
 from django.urls import reverse_lazy
 from selenium.webdriver.chrome.webdriver import WebDriver
 
+import environ
+env = environ.Env()
+env.read_env('.env')
+
 
 class TestLogin(LiveServerTestCase):
     @classmethod
@@ -17,15 +21,16 @@ class TestLogin(LiveServerTestCase):
 
     def test_login(self):
         # ログインページを開く
-        self.selenium.get("https://localhost:8000" +
+        self.selenium.get("http://localhost:8000" +
                           str(reverse_lazy("account_login")))
 
         # ログイン
         username_input = self.selenium.find_element_by_name("login")
-        username_input.send_keys("<ユーザー登録済みのメールアドレス>")
+        username_input.send_keys(env("TEST_USER_MAIL"))
         password_input = self.selenium.find_element_by_name("password")
-        password_input.send_keys("<ログインパスワード>")
-        self.selenium.find_element_by_class_name("btn").click()
+        password_input.send_keys(env("TEST_USER_PASS"))
+        elem = self.selenium.find_element_by_class_name("testBtn")
+        elem.click()
 
         # ページタイトルの検証
         self.assertEquals("日記一覧 | Private Diary", self.selenium.title)

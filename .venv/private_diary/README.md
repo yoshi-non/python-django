@@ -63,8 +63,12 @@ staticタグを使えるようにする。
 {% block ブロック名 %}{% endblock %}
 ```
 
-## サンプル画像
+## テストの注意点
 
-index.html
+seleniumのバージョンによるエラーの解決法
 
-![screencapture-index](https://user-images.githubusercontent.com/83369665/185094241-af6163cc-e04f-47aa-ba57-4627bc33467c.png)
+```
+pip install selenium==4.1.0
+```
+
+https://qiita.com/syoshika_/items/288fc8bf552672589f4c
