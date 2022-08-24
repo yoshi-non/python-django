@@ -33,3 +33,12 @@ pip install selenium==4.1.0
 ```
 
 参考記事 : https://qiita.com/syoshika_/items/288fc8bf552672589f4c
+
+# サンプル画像
+
+![home](https://user-images.githubusercontent.com/83369665/186470862-dc158972-6ac1-4510-a146-766a06a6e238.png)
+![diary-list](https://user-images.githubusercontent.com/83369665/186471066-78260f92-ef47-4a24-9de4-474db0906b9e.png)
+![diary-detail](https://user-images.githubusercontent.com/83369665/186471111-3cff26f7-d4df-492a-aeba-78a487cfcb08.png)
+![diary-create](https://user-images.githubusercontent.com/83369665/186471140-77289fb1-5a8c-48a9-a631-430ec8c2363a.png)
+![diary-update](https://user-images.githubusercontent.com/83369665/186471172-0d006647-3628-4b8a-99da-58f49bf60595.png)
+![inquiry](https://user-images.githubusercontent.com/83369665/186471207-5ec1a4e2-7e71-49fd-a99a-da706bb3f32b.png)
