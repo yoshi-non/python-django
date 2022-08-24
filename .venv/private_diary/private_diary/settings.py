@@ -214,3 +214,7 @@ DEFAULT_FROM_EMAIL = env("FROM_EMAIL")
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 MEDIA_URL = '/media/'
+
+# バックアップバッチ用
+BACKUP_PATH = "backup/"
+NUM_SAVED_BACKUP = 30

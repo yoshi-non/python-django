@@ -2,8 +2,8 @@
 /.venv/Lib
 /.venv/Scripts
 /.venv/pyvenv.cfg
+/.venv/private_diary/backup/
 /.venv/private_diary/media/
-
 *.log
 *.pyc
 *.env
