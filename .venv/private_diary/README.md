@@ -1,74 +1,35 @@
 # 日記アプリ
 
-- diary : アプリケーションフォルダ
-  - templates
-    - base.html : 全体レイアウト
-    - index.html : ホームページ(未ログイン)
-
-- private_diary : プロジェクトフォルダ
-
-- static : 静的ファイル
-  - assets
-    - img : 画像フォルダ
-  - css
-    - base.css : base.html用のcss
-    - index.css : index.html用のcss
-
+- accounts : ユーザー認証フォルダ
+- backup : 日記データのバックアップフォルダ(gitignore)
+- diary : 日記アプリケーションフォルダ
+- media : 投稿画像保存フォルダ(gitignore)
+- private_diary : プロジェクトフォルダ(ルーティング設定、環境設定など)
+- static : 静的ファイル(画像、CSSなど)
 - manage.py : サーバ起動用ファイル
+- .env : private_diary/settings.pyには載せられないKEYや環境変数
 
-※CSS設計規則はBEMを使用しています。
+※動かして学ぶ! [Python Django開発入門第2版](https://www.amazon.co.jp/%E5%8B%95%E3%81%8B%E3%81%97%E3%81%A6%E5%AD%A6%E3%81%B6-Python-Django%E9%96%8B%E7%99%BA%E5%85%A5%E9%96%80-%E7%AC%AC2%E7%89%88-NEXT/dp/479817419X)を参考に作ったアプリケーションになります。
 
-# 目次
+# アレンジで変更した点
 
-- 静的ファイルが配置されている場所の設定
-- レイアウトの継承
-- サンプル画像
+- CSSはBootStrapではなくCSS設計規則のBEMを使用
+- os.environの環境変数はdjango-environを使用し.envに記載
+  - 参考記事 : https://e-tec-memo.herokuapp.com/article/172/
 
-## 静的ファイルが配置されている場所の設定
+# 遭遇したエラーの解決法
 
-static/cssフォルダを作成し、settings.pyに静的ファイルの配置場所を追加する。
+- Staticフォルダが読み込まれないエラー
+- seleniumのバージョンによるエラーの解決法
 
-private_diary/settings.py
+## Staticフォルダが読み込まれないエラー
 
-```py
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
-```
+DEBUG = Falseになっていると読み込まれないのでTrueにする
 
-## レイアウトの継承
-
-staticタグを使えるようにする。
-
-```
-{% load static %}
-```
-
-```
-<!-- 継承されるファイル -->
-{% extends '継承するファイル名' %}
-{% block ブロック名 %}
-
-<header>
-    <div>
-        <h1>Private Diary</h1>
-        <h2>あなた専用の日記保存サービス</h2>
-        <a href="/">LOG IN</a>
-    </div>
-</header>
-
-{% endblock %}
-
-<!-- 継承するファイル -->
-{% block ブロック名 %}{% endblock %}
-```
-
-## テストの注意点
-
-seleniumのバージョンによるエラーの解決法
+## seleniumのバージョンによるエラーの解決法
 
 ```
 pip install selenium==4.1.0
 ```
 
-https://qiita.com/syoshika_/items/288fc8bf552672589f4c
+参考記事 : https://qiita.com/syoshika_/items/288fc8bf552672589f4c

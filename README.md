@@ -3,16 +3,13 @@
 サーバ起動
 ```
 .venv/Scripts/Activate.ps1
-
 cd .venv/private_diary
-
 python manage.py runserver
 ```
 
 マイグレーション
 ```
 python manage.py makemigrations
-
 python manage.py migrate
 ```
 
@@ -168,9 +165,11 @@ DATABASES = {
         'PORT': '',
     }
 }
+```
 
 「NAME」は接続するデータベース名です。
-```
+
+※マイグレーションしないとエラーになります。
 
 ## ロギングの設定(欲しい方のみ)
 
@@ -310,8 +309,8 @@ diaryにtemplates/index.htmlを作成
 
 ## サーバの起動
 
-サーバの起動ですがまだPostgreSQLと接続していないためsettings.pyのデータベースをコメントアウトする必要があります。
-サーバの起動確認のため一時的なコメントアウトです。
+サーバの起動ですがまだマイグレーションしていないためsettings.pyのデータベースをコメントアウトする必要があります。
+マイグレーションしていればコメントアウトする必要はありません。
 
 .venv/private_diary/private_diary/settings.py
 
