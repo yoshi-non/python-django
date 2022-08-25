@@ -336,3 +336,14 @@ diaryにtemplates/index.htmlを作成
 ![hello-world](https://user-images.githubusercontent.com/83369665/184890668-290ba987-52fd-4164-b75b-23d7a053d8c8.png)
 
 この画面が出れば成功です。
+
+# 仮想環境内でpipコマンドが使えないエラー
+
+Fatal error in launcher: Unable to create process usingというエラーでpip listが使えなくなった。
+
+原因: pythonのバージョンを無理やり上げようとしたため
+
+経緯: python3.9.4をアンインストールしてpython3.10.6をインストールする->仮想環境にすら入れなくなる
+->python3.9.4を再インストール->仮想環境には入れるようになったがpip listが使えなくなる
+
+対応: pip listではなくpython -m pip listというコマンドを打てば良い
